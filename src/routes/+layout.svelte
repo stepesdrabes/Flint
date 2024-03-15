@@ -3,6 +3,8 @@
     import {browser} from "$app/environment"
     import theme from "$lib/flint/theme"
     import {onDestroy} from "svelte"
+    import {flintToastsEnabled} from "$lib/flint/flintSettings"
+    import FlintToastsContainer from "$components/flint/misc/toasts/FlintToastsContainer.svelte"
     import type {LayoutData} from './$types'
 
     export let data: LayoutData
@@ -27,6 +29,12 @@
 
 <div class="app-container {themeValue ?? localTheme}">
     <slot/>
+
+    {#if $flintToastsEnabled}
+        <div class="flint-toasts">
+            <FlintToastsContainer/>
+        </div>
+    {/if}
 </div>
 
 <style lang="scss">
@@ -38,5 +46,12 @@
     color: var(--text-color);
     overflow: hidden;
     background-color: var(--background-color);
+
+    .flint-toasts {
+      position: fixed;
+      bottom: var(--spacing-l);
+      right: var(--spacing-l);
+      z-index: 10;
+    }
   }
 </style>

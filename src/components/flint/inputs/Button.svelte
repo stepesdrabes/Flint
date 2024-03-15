@@ -7,13 +7,14 @@
     export let background = 'var(--accent-color)'
     export let color = '#FFFFFF'
     export let textSize = 'var(--text-smaller)'
+    export let borderRadius = '1.25rem'
 
     export let onClick: () => void = () => {
     }
 </script>
 
 <button on:click={onClick}
-        style="width: {width}; height: {height}; border-radius: calc({height} / 2); background-color: {background}; color: {color}; font-size: {textSize}">
+        style="width: {width}; height: {height}; border-radius: {borderRadius}; background-color: {background}; color: {color}; font-size: {textSize}">
     {#if icon}
         <i class="fi fi-br-{icon}"></i>
     {/if}
@@ -45,11 +46,6 @@
 
     &:active {
       scale: 0.95;
-    }
-
-    &:focus {
-      border: 1px solid var(--outline-color);
-      outline: 1px solid var(--accent-color);
     }
 
     &:disabled {
