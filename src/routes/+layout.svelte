@@ -1,7 +1,7 @@
 <script lang="ts">
     import "../app.scss"
     import {browser} from "$app/environment"
-    import theme from "$lib/theme"
+    import theme from "$lib/flint/theme"
     import {onDestroy} from "svelte"
     import type {LayoutData} from './$types'
 
